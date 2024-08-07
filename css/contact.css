@@ -1,6 +1,6 @@
 /* Styles pour la page de contact */
 .contact {
-    padding: 20px; /* Ajoute de l'espace autour de la section de contact */
+    padding: 50px; /* Ajoute de l'espace autour de la section de contact */
   }
   
   .contact h1 {
@@ -41,5 +41,12 @@
   
   button:hover {
     background-color: #444; /* Change la couleur de fond lorsque le bouton est survolé */
+  }
+
+  @media (max-width: 768px) {
+    .contact {
+        padding: 10px; /* Ajoute de l'espace autour de la section de contact */
+    }
+      
   }
   
