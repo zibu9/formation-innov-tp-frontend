@@ -10,11 +10,16 @@ document.addEventListener('DOMContentLoaded', () => { // Attends que le DOM soit
       document.getElementById('message-error').textContent = ''; // Efface les messages d'erreur pour le message
   
       // Validation du nom
-      const name = document.getElementById('name').value.trim(); // Récupère et nettoie la valeur du champ nom
-      if (name === '') { // Vérifie si le nom est vide
-        document.getElementById('name-error').textContent = 'Le nom est requis.'; // Affiche un message d'erreur
-        isValid = false; // Définit isValid à false
-      }
+    const name = document.getElementById('name').value.trim(); // Récupère et nettoie la valeur du champ nom
+    const namePattern = /^[A-Za-zÀ-ÿ\s]+$/; // Expression régulière pour vérifier que le nom contient uniquement des lettres et des espaces
+
+    if (name === '') { // Vérifie si le nom est vide
+      document.getElementById('name-error').textContent = 'Le nom est requis.'; // Affiche un message d'erreur
+      isValid = false; // Définit isValid à false
+    } else if (!namePattern.test(name)) { // Vérifie si le nom contient des chiffres ou des caractères non autorisés
+      document.getElementById('name-error').textContent = 'Le nom ne doit contenir que des lettres et des espaces.'; // Affiche un message d'erreur
+      isValid = false; // Définit isValid à false
+    }
   
       // Validation de l'email
       const email = document.getElementById('email').value.trim(); // Récupère et nettoie la valeur du champ email
