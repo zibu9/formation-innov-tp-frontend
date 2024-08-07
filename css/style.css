@@ -102,17 +102,11 @@ nav a:hover {
 
 /*****************Contenu Principal*****************
 **************************************************/
-/* Conteneur principal pour le contenu */
-main {
-  display: flex; /* Utilise Flexbox pour l'alignement des éléments */
-  justify-content: space-between; /* Espace entre les éléments */
-  padding: 20px; /* Ajoute de l'espace autour du contenu */
-}
-
 /* Conteneur pour la section de contenu */
 .content {
   display: flex; /* Utilise Flexbox pour aligner le diaporama et l'article */
-  width: 100%; /* Occupe toute la largeur disponible */
+  justify-content: space-between; /* Espace entre les éléments */
+  padding: 20px; /* Ajoute de l'espace autour du contenu */
 }
 
 /* Conteneur pour le diaporama */
@@ -172,7 +166,7 @@ main {
 .featured-article {
   width: 33.33%; /* 1fr/3 de la largeur */
   display: flex; /* Utilise Flexbox pour aligner l'image et le texte */
-  border: 1px solid rgba(0, 0, 0, 0.3); /* ajoute une bordure */
+  border: 1px solid #ddd; /* ajoute une bordure */
   border-style: dashed; /* bordure en pointillé */
   flex-direction: column; /* Affiche l'image au-dessus du texte */
   border-radius: 8px; /* Bordure arrondie */
@@ -208,6 +202,39 @@ main {
   text-decoration: underline; /* Souligne le lien au survol */
 }
 
+/* Deuxième section avec une grille de cartes */
+.cards-section {
+  display: grid; /* Utilise la grille CSS */
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes de largeur égale */
+  gap: 20px; /* Espace entre les cartes */
+  padding: 20px; /* Espace autour de la section */
+}
+
+.card {
+  border: 1px solid #ddd; /* Bordure autour de la carte */
+  border-radius: 8px; /* Coins arrondis */
+  overflow: hidden; /* Coupe le contenu qui dépasse */
+  display: flex; /* Affiche l'image et le contenu en colonne */
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%; /* L'image occupe toute la largeur de la carte */
+  height: auto; /* Maintient les proportions de l'image */
+}
+
+.card-content {
+  padding: 15px; /* Espace autour du texte */
+}
+
+.card-content h3 {
+  font-size: 18px; /* Taille du titre */
+  margin: 0 0 10px; /* Espace entre le titre et la description */
+}
+
+.card-content p {
+  margin: 0; /* Retire les marges par défaut */
+}
 
 /* Styles pour les petits écrans */
 @media (max-width: 768px) {
@@ -261,5 +288,10 @@ main {
     margin-right: 0; /* Supprime la marge droite */
     margin-bottom: 20px; /* Ajoute un espace en bas */
   }
+  .cards-section {
+    grid-template-columns: 1fr; /* 1 colonne pour les petits écrans */
+  }
 }
+
+
 
