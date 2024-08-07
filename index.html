@@ -4,64 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accueil - Blog Exemple</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <!-- En-tête -->
   <header>
     <div class="logo">MonBlog</div>
-    <nav>
+    <div class="hamburger-menu" id="hamburger-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="nav-menu">
       <ul>
         <li><a href="#">Accueil</a></li>
-        <li><a href="#">Actualité</a></li>
+        <li class="dropdown">
+          <a href="#">Actualité</a>
+          <ul class="dropdown-content">
+            <li><a href="#">Catégorie 1</a></li>
+            <li><a href="#">Catégorie 2</a></li>
+            <li><a href="#">Catégorie 3</a></li>
+          </ul>
+        </li>
         <li><a href="#">À propos</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Diaporama -->
-  <section class="slider">
-    <div class="slides-container">
-      <div class="slide" style="background-image: url('https://via.placeholder.com/1080x600');">
-        <div class="slide-caption">
-          <h2>Titre du Slide 1</h2>
-          <p>Description du Slide 1.</p>
-        </div>
-      </div>
-      <div class="slide" style="background-image: url('https://via.placeholder.com/1080x600');">
-        <div class="slide-caption">
-          <h2>Titre du Slide 2</h2>
-          <p>Description du Slide 2.</p>
-        </div>
-      </div>
-      <div class="slide" style="background-image: url('https://via.placeholder.com/1080x600');">
-        <div class="slide-caption">
-          <h2>Titre du Slide 3</h2>
-          <p>Description du Slide 3.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Articles en vedette -->
-  <section class="articles-grid">
-    <article class="article-featured" style="background-image: url('https://via.placeholder.com/1080x600');">
+  <!-- Section en vedette -->
+  <section class="featured-section">
+    <div class="featured-article" style="background-image: url('https://via.placeholder.com/1080x600');">
       <div class="article-info">
         <h2>Titre de l'article en vedette</h2>
         <p>Résumé de l'article en vedette...</p>
       </div>
-    </article>
-    <article class="article-small" style="background-image: url('https://via.placeholder.com/540x600');">
+    </div>
+  </section>
+
+  <!-- Articles en grille -->
+  <section class="articles-grid">
+    <article class="article-card" style="background-image: url('https://via.placeholder.com/540x600');">
       <div class="article-info">
-        <h2>Titre de l'article</h2>
+        <h3>Titre de l'article</h3>
       </div>
     </article>
-    <article class="article-small" style="background-image: url('https://via.placeholder.com/540x600');">
+    <article class="article-card" style="background-image: url('https://via.placeholder.com/540x600');">
       <div class="article-info">
-        <h2>Titre de l'article</h2>
+        <h3>Titre de l'article</h3>
       </div>
     </article>
+    <article class="article-card" style="background-image: url('https://via.placeholder.com/540x600');">
+      <div class="article-info">
+        <h3>Titre de l'article</h3>
+      </div>
+    </article>
+    <article class="article-card" style="background-image: url('https://via.placeholder.com/540x600');">
+      <div class="article-info">
+        <h3>Titre de l'article</h3>
+      </div>
+    </article>
+    <!-- Ajoutez d'autres articles ici -->
   </section>
 
   <!-- Pied de page -->
@@ -69,6 +72,6 @@
     <p>&copy; 2024 MonBlog. Tous droits réservés.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
