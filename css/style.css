@@ -4,11 +4,11 @@
     date : 05 Aug 2024
     Hey Inspector, if you're here and like the design, take a look at skytech243.com
 */
-/* Réinitialisation et mise en page de base */
 body {
   margin: 0; /* Retire les marges par défaut */
   font-family: Arial, sans-serif; /* Définit la police de caractères */
 }
+
 
 /*****************Menu*****************
 **************************************/
@@ -20,6 +20,7 @@ header {
   padding: 20px 25px; /* Ajoute des espaces autour des éléments de l'en-tête */
   background-color: #333333; /* Couleur de fond sombre */
   color: white; /* Couleur du texte blanc */
+  z-index: 1000;
 }
 
 .logo {
@@ -54,6 +55,13 @@ nav a {
 }
 
 nav a:hover {
+  background-color: #444; /* Change la couleur de fond au survol */
+  color: #fff; /* Couleur du texte au survol */
+  border-radius: 4px; /* Ajoute des coins arrondis aux liens */
+  padding: 5px 10px; /* Ajoute du padding pour agrandir la zone cliquable */
+}
+
+.active-page {
   background-color: #444; /* Change la couleur de fond au survol */
   color: #fff; /* Couleur du texte au survol */
   border-radius: 4px; /* Ajoute des coins arrondis aux liens */
@@ -102,6 +110,54 @@ nav a:hover {
 
 /*****************Contenu Principal*****************
 **************************************************/
+/* Style de la section marquee */
+.marquee {
+  display: flex; /* Utilise Flexbox pour aligner les éléments horizontalement */
+  align-items: center; /* Aligne les éléments verticalement au centre */
+  background-color: #333; /* Couleur de fond de la section */
+  color: white; /* Couleur du texte */
+  overflow: hidden; /* Cache le contenu qui dépasse */
+  position: relative; /* Nécessaire pour le positionnement de la partie défilante */
+}
+
+/* Partie fixe avec le texte "Flash Info" */
+.flash-info {
+  flex: 0 0 12.5%; /* 1fr/8, soit 12.5% de la largeur totale */
+  background-color: #444; /* Couleur de fond du texte fixe */
+  padding: 10px; /* Espace autour du texte */
+  font-weight: bold; /* Met le texte en gras */
+}
+
+/* Partie défilante */
+.marquee-content {
+  flex: 1; /* Prend le reste de la largeur disponible */
+  overflow: hidden; /* Cache le texte qui dépasse */
+  position: relative; /* Nécessaire pour le positionnement absolu du texte défilant */
+}
+
+/* Conteneur du texte défilant */
+.marquee-text {
+  display: flex; /* Utilise Flexbox pour aligner les éléments horizontalement */
+  white-space: nowrap; /* Empêche le retour à la ligne */
+  animation: marquee 20s linear infinite; /* Animation de défilement */
+}
+
+/* Animation de défilement */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%); /* Commence à droite */
+  }
+  100% {
+    transform: translateX(-100%); /* Se déplace complètement vers la gauche */
+  }
+}
+
+.marquee-text p {
+  margin: 0; /* Retire les marges par défaut */
+  padding: 0 2rem; /* Ajoute de l'espace entre les éléments de texte */
+}
+
+
 /* Conteneur pour la section de contenu */
 .content {
   display: flex; /* Utilise Flexbox pour aligner le diaporama et l'article */
@@ -211,12 +267,27 @@ nav a:hover {
 }
 
 .card {
+  position: relative; /* Nécessaire pour le positionnement absolu du badge */
   border: 1px solid #ddd; /* Bordure autour de la carte */
   border-radius: 8px; /* Coins arrondis */
   overflow: hidden; /* Coupe le contenu qui dépasse */
   display: flex; /* Affiche l'image et le contenu en colonne */
   flex-direction: column;
 }
+
+.badge {
+  position: absolute; /* Positionne le badge de manière absolue */
+  top: 10px; /* Espace du haut */
+  right: 10px; /* Espace du bord droit */
+  background-color: #f00; /* Couleur de fond du badge */
+  color: white; /* Couleur du texte du badge */
+  padding: 5px 10px; /* Espace autour du texte */
+  border-radius: 12px; /* Coins arrondis du badge */
+  font-size: 12px; /* Taille de la police du badge */
+  font-weight: bold; /* Met le texte en gras */
+  text-align: center; /* Centre le texte */
+}
+
 
 .card img {
   width: 100%; /* L'image occupe toute la largeur de la carte */
@@ -236,6 +307,17 @@ nav a:hover {
   margin: 0; /* Retire les marges par défaut */
 }
 
+/*****************Footer*****************
+**************************************************/
+footer {
+  bottom: 0; /* Aligne le pied de page avec le bas de la page */
+  background-color: #333; /* Couleur de fond du pied de page */
+  color: white; /* Couleur du texte */
+  text-align: center; /* Centre le texte */
+  padding: 10px; /* Espace autour du texte */
+}
+
+
 /* Styles pour les petits écrans */
 @media (max-width: 768px) {
   .hamburger-menu {
@@ -250,6 +332,7 @@ nav a:hover {
     background-color: #333; /* Couleur de fond sombre pour le menu de navigation */
     width: 100%; /* Occupe toute la largeur disponible */
     flex-direction: column; /* Aligne les éléments du menu de navigation en colonne */
+    z-index: 1000;
   }
 
   #nav-menu ul {
